@@ -1,0 +1,24 @@
+@media screen and (max-width: 640px) {
+
+    .react-tabs__tab{
+        font-size: 14px;
+    }
+
+}
+
+@media screen and (max-width: 510px) {
+
+    .react-tabs__tab{
+        font-size: 12px;
+    }
+
+}
+
+
+@media screen and (max-width: 445px) {
+
+    .react-tabs__tab{
+        font-size: 10px;
+    }
+
+}
