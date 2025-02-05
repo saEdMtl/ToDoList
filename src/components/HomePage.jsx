@@ -1,4 +1,4 @@
-import React, { createContext, useEffect, useState } from 'react'
+import React, { createContext, useState } from 'react'
 import Header from './Header';
 import Tasks from './Tasks';
 import { v4 as uuidv4 } from 'uuid';
@@ -16,6 +16,7 @@ function HomePage() {
         subset1: '',
         subset2: '',
         subset3: '',
+        checkedSubsets: 0
     });
 
     const add = () => {
@@ -27,12 +28,10 @@ function HomePage() {
             subset1: '',
             subset2: '',
             subset3: '',
+            checkedSubsets: 0
+
         });
     }
-
-    useEffect(() => {
-        console.log(tasks)
-    }, [tasks])
 
     const inputChangeHandler = event => {
         setNewTask({ ...newTask, name: event.target.value });
@@ -41,9 +40,11 @@ function HomePage() {
     const subset1ChangeHandler = (event) => {
         setNewTask({ ...newTask, subset1: event.target.value });
     }
+
     const subset2ChangeHandler = (event) => {
         setNewTask({ ...newTask, subset2: event.target.value });
     }
+
     const subset3ChangeHandler = (event) => {
         setNewTask({ ...newTask, subset3: event.target.value });
     }
@@ -58,11 +59,11 @@ function HomePage() {
                     <button onClick={add} className='outline rounded-lg md:p-3 p-2 text-md hover:bg-amber-100 transition-normal'>Add</button>
                 </div>
                 <div>
-                    <h6 className='mt-5 text-center text-2xl mb-3'>You Can Also Add Subset For Your Tasks</h6>
+                    <h6 className='mt-5 text-center text-lg md:text-2xl mb-3'>You Can Also Add Subset For Your Tasks</h6>
                     <div className='flex justify-center'>
-                        <input placeholder='Subset One' value={newTask.subset1} onChange={subset1ChangeHandler} className='md:w-xs md:p-3 md:text-lg mr-2 border-solid outline rounded-xl p-2 text-md ' />
-                        <input placeholder='Subset Two' value={newTask.subset2} onChange={subset2ChangeHandler} className='md:w-xs md:p-3 md:text-lg mr-2 border-solid outline rounded-xl p-2 text-md ' />
-                        <input placeholder='Subset Three' value={newTask.subset3} onChange={subset3ChangeHandler} className='md:w-xs md:p-3 md:text-lg mr-2 border-solid outline rounded-xl p-2 text-md ' />
+                        <input placeholder='Subset One' value={newTask.subset1} onChange={subset1ChangeHandler} className='md:w-xs w-30 p-2 text-sm md:p-3 md:text-lg mr-2 border-solid outline rounded-xl p-2 text-md ' />
+                        <input placeholder='Subset Two' value={newTask.subset2} onChange={subset2ChangeHandler} className='md:w-xs w-30 p-2 text-sm md:p-3 md:text-lg mr-2 border-solid outline rounded-xl p-2 text-md ' />
+                        <input placeholder='Subset Three' value={newTask.subset3} onChange={subset3ChangeHandler} className='md:w-xs w-30 p-2 text-sm md:p-3 md:text-lg mr-2 border-solid outline rounded-xl p-2 text-md ' />
                     </div>
                 </div>
                 <div>
